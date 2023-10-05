@@ -21,7 +21,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="m-[0_auto] h-screen max-w-[620px] w-full flex flex-col items-center justify-center">
+  <div class="m-[0_auto] flex h-screen w-full max-w-[620px] flex-col items-center justify-center">
     <span>{{ processingError.message }}</span>
   </div>
 </template>

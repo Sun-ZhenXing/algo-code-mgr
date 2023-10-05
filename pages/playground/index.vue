@@ -1,49 +1,54 @@
 <script setup>
-import { useDark, useLocalStorage } from '@vueuse/core'
+const md = ref(`# Simple MDC
 
-useDark()
+## 1. Basic MarkDown
 
-const key = 'nuxt-mdc-playground-code'
-const md = useLocalStorage(key, `# Simple
+- **Bold**
+- *Italic*
+- Inline code: \`Code\`
+- Inline code with lang: \`const hello = () => console.log('Hello, world!')\`{lang="js"}
+- [Link](#)
+- Reference[^1]
 
-Simple paragraph
+[^1]: Reference，<https://google.com>
 
-Inline code: \`const codeInline: string = 'highlighted code inline'\`{lang="ts"}
-
-Code block:
-\`\`\`typescript[filename]{1,3-5}meta
-import { parseMarkdown } from '@nuxtjs/mdc/runtime'
-
-async function main(mdc: string) {
-  const ast = await parseMarkdown(mdc)
-
-  // Do your magic with parsed AST tree
-
-  return ast
+\`\`\`js
+function hello() {
+  console.log('Hello, world!')
 }
 \`\`\`
+
+## 2. MarkDown Components
+
+::alert{type="info"}
+Info alert!
+::
+
+::alert{type="success"}
+Success alert!
+::
+
+::alert{type="warning"}
+Warning alert!
+::
+
+::alert{type="error"}
+Error alert!
+::
+
+::card{title="Card Title"}
+1. This is a card.
+2. This is a card.
+::
 `)
 </script>
 
 <template>
-  <div class="grid grid-cols-2 h-screen">
-    <textarea
-      v-model="md"
-      class="w-full p-4"
-    />
-    <MDC
-      v-slot="{ data, body }"
-      tag="article"
-      :value="md"
-      class="p-4"
-    >
+  <div class="grid h-screen grid-cols-2">
+    <textarea v-model="md" class="textarea w-full p-4 font-mono" placeholder="Input MDC code..." />
+    <MDC v-slot="{ data, body }" tag="article" :value="md" class="m-2 box-border overflow-auto p-4">
       <h1>{{ data?.name }}</h1>
-      <MDCRenderer
-        tag="div"
-        :body="body"
-        :data="data"
-        :prose="false"
-      />
+      <MDCRenderer tag="div" :body="body" :data="data" class="prose mx-auto" />
     </MDC>
   </div>
 </template>

@@ -29,7 +29,8 @@ export default defineNuxtConfig({
   mdc: {
     highlight: {
       theme: {
-        default: 'light-plus',
+        system: 'dark-plus',
+        light: 'dark-plus',
         dark: 'dark-plus',
       },
       preload: [

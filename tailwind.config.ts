@@ -1,4 +1,5 @@
 import daisyui from 'daisyui'
+import typography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
 
 export default {
@@ -9,9 +10,11 @@ export default {
     './app.vue',
   ],
   plugins: [
+    typography(),
     daisyui,
   ],
   daisyui: {
+    logs: false,
     themes: [
       'light',
       'dark',
