@@ -2,6 +2,21 @@
 
 Building dynamically rendered MarkDown + Vue components using MDC.
 
+TODO:
+
+- [ ] Stop using server side highlighting
+- [ ] Plugins
+  - [ ] Support for math (KaTeX)
+  - [ ] Support for diagrams (Mermaid)
+  - [ ] Support for charts (ECharts)
+- [ ] Components
+  - [ ] CodeGroup
+  - [ ] QuestionCard
+  - [ ] TagList
+- [ ] Add Prisma ORM & MongoDB
+- [ ] Add user auth (login, register, reset password, etc.)
+- [ ] Add `docker-compose.yml` for deployment
+
 ## 1. Environment dependencies
 
 Requires `pnpm` 8+ and Node.js >= 16 installed:

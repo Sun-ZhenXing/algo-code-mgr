@@ -36,7 +36,18 @@ const alertType = computed(() => {
 
 <template>
   <div class="alert m-2" :class="alertType">
-    <Icon :name="icon" />
+    <!-- Remove ClientOnly when nuxt-modules/icon#101 fixed.
+      Reference: https://github.com/nuxt-modules/icon/issues/101
+    -->
+    <ClientOnly>
+      <Icon :name="icon" />
+    </ClientOnly>
     <MDCSlot unwrap="p" />
   </div>
 </template>
+
+<style>
+.alert {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+</style>

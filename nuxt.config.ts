@@ -27,18 +27,28 @@ export default defineNuxtConfig({
     '@nuxtseo/module',
   ],
   mdc: {
-    highlight: {
-      theme: {
-        system: 'dark-plus',
-        light: 'dark-plus',
-        dark: 'dark-plus',
+    remarkPlugins: {
+      'remark-math': {
       },
-      preload: [
-        'python',
-        'java',
-        'cpp',
-      ],
     },
+    rehypePlugins: {
+      'rehype-katex': {
+        output: 'html',
+      },
+    },
+    // highlight: {
+    //   theme: {
+    //     system: 'dark-plus',
+    //     light: 'dark-plus',
+    //     dark: 'dark-plus',
+    //   },
+    //   preload: [
+    //     'python',
+    //     'java',
+    //     'cpp',
+    //   ],
+    // },
+    highlight: false,
   },
   colorMode: {
     preference: 'system', // default theme 'system'
@@ -48,4 +58,7 @@ export default defineNuxtConfig({
   linkChecker: {
     enabled: false,
   },
+  css: [
+    'katex/dist/katex.min.css',
+  ],
 })
