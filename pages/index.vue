@@ -1,12 +1,23 @@
 <script setup lang="ts">
+import { parseMarkdown } from '@nuxtjs/mdc/dist/runtime'
 import { daisyEnableThemes } from '~/settings'
 
 const colorMode = useColorMode()
-const md = `
-::alert
+const md = ref(`::alert
 Hello MDC
 ::
-`
+
+$$
+L = \\frac{1}{2} \\rho v^2 S C_L
+$$
+`)
+async function main() {
+  const ast = await parseMarkdown(md.value)
+  console.log(ast)
+  return ast
+}
+
+watch(md, main, { immediate: true })
 </script>
 
 <template>
@@ -23,7 +34,11 @@ Hello MDC
           {{ theme }}
         </option>
       </select>
+      <button class="btn" @click="$router.push('/playground')">
+        Goto Playground
+      </button>
     </div>
     <MDC :value="md" tag="article" />
+    <textarea v-model="md" class="textarea w-full" rows="10" />
   </div>
 </template>

@@ -1,6 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    },
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
+  devtools: {
+    enabled: true
+  },
   modules: [
     // Content
     '@nuxtjs/mdc',
@@ -33,22 +42,21 @@ export default defineNuxtConfig({
     },
     rehypePlugins: {
       'rehype-katex': {
-        output: 'html',
       },
     },
-    // highlight: {
-    //   theme: {
-    //     system: 'dark-plus',
-    //     light: 'dark-plus',
-    //     dark: 'dark-plus',
-    //   },
-    //   preload: [
-    //     'python',
-    //     'java',
-    //     'cpp',
-    //   ],
-    // },
-    highlight: false,
+    highlight: {
+      theme: {
+        system: 'dark-plus',
+        light: 'dark-plus',
+        dark: 'dark-plus',
+      },
+      preload: [
+        'python',
+        'java',
+        'cpp',
+      ],
+    },
+    // highlight: false,
   },
   colorMode: {
     preference: 'system', // default theme 'system'
@@ -60,5 +68,6 @@ export default defineNuxtConfig({
   },
   css: [
     'katex/dist/katex.min.css',
+    '~/assets/styles/common.scss',
   ],
 })

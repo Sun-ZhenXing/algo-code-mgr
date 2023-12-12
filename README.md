@@ -6,10 +6,11 @@ TODO:
 
 - [ ] Stop using server side highlighting
 - [ ] Plugins
-  - [ ] Support for math (KaTeX)
+  - [x] Support for math (KaTeX)
   - [ ] Support for diagrams (Mermaid)
   - [ ] Support for charts (ECharts)
 - [ ] Components
+  - [x] Alert
   - [ ] CodeGroup
   - [ ] QuestionCard
   - [ ] TagList

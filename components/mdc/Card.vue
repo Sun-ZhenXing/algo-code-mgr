@@ -14,3 +14,10 @@ const props = defineProps<{
     </div>
   </div>
 </template>
+
+<style scoped>
+.card {
+  color: rgba(255, 255, 255, 0.95) !important;
+  --tw-prose-counters: rgba(255, 255, 255, 0.95);
+}
+</style>
