@@ -46,6 +46,12 @@ Error alert!
 1. This is a card.
 2. This is a card.
 ::
+
+\`\`\`mermaid
+graph TD
+    1234
+    1231
+\`\`\`
 `)
 </script>
 

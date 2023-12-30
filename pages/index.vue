@@ -11,13 +11,6 @@ $$
 L = \\frac{1}{2} \\rho v^2 S C_L
 $$
 `)
-async function main() {
-  const ast = await parseMarkdown(md.value)
-  console.log(ast)
-  return ast
-}
-
-watch(md, main, { immediate: true })
 </script>
 
 <template>
